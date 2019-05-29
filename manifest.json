@@ -1,0 +1,41 @@
+{
+  "manifest_version": 2,
+  "name": "Photophobia Dynamic",
+  "short_name": "Photophobia",
+  "description": "Change your browser color and brightness.",
+  "version": "1.0",
+  "author": "Raphael Quintao",
+  "icons": {
+    "250": "assets/icon.png"
+  },
+  "permissions": [
+    "theme",
+    "storage"
+  ],
+  "background": {
+    "page": "bg.html"
+  },
+  "browser_action": {
+    "default_icon": {
+      "250": "assets/icon.png"
+    },
+    "default_title": "Photophobia",
+    "default_popup": "options.html",
+    "browser_style": true
+  },
+  "options_ui": {
+    "page": "options.html",
+    "browser_style": true
+  },
+//  "sidebar_action": {
+//    "default_title": "Photophobia",
+//    "default_panel": "sidebar.html",
+//    "default_icon": "assets/icon.png"
+//  },
+  "applications": {
+    "gecko": {
+      "id": "photophobia@quintao.ninja",
+      "strict_min_version": "63.0"
+    }
+  }
+}

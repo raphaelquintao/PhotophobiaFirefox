@@ -1,0 +1,95 @@
+html, body {
+    color: hsl(240, 4%, 85%);
+    /*background-color: 4var(--in-content-box-background, transparent);*/
+    background-color: hsl(0, 0%, 21%);
+    padding: 0;
+    margin: 0;
+}
+
+.content {
+    font-family: Monospaced, monospace;
+    margin: 0;
+    padding: 0;
+
+    min-width: 350px;
+}
+
+.section {
+    background-color: hsl(0, 0%, 21%);
+    border: 0px solid hsl(0, 0%, 5%);
+    padding: 10px;
+    margin: 0;
+}
+
+.section + .section {
+    border-top: 0;
+}
+
+.section h3 {
+    margin: 0;
+    margin-bottom: 2px;
+}
+
+
+a:link, a:visited, a:active, a:hover {
+    color: #34536A;
+}
+
+/* Separator */
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: hsl(0, 0%, 32%);
+    margin: 0;
+}
+
+select {
+    background-color: hsl(0, 0%, 29%);
+    background-image: url("../assets/ArrowDown.svg");
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: calc(100% - 8px);
+    font-size: 0.9rem;
+    font-family: inherit;
+    color: inherit;
+    border: 1px solid #000;
+    border-radius: 2px;
+    padding: 3px 8px;
+    padding-right: 30px;
+    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.13), 0 1px 0 rgba(255, 255, 255, 0.07);
+    outline: 0 !important;
+}
+
+/* BUTTONS */
+button {
+    font-size: 0.9rem;
+    background-color: hsl(0, 0%, 29%);
+    border: 1px solid #000;
+    border-radius: 2px;
+    padding: 4px 8px;
+    color: inherit;
+    cursor: pointer;
+    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.13), 0 1px 0 rgba(255, 255, 255, 0.07);
+    outline: none;
+    font-family: inherit;
+    transition: background-color ease-in-out 150ms;
+}
+
+button:hover, button:focus {
+    background-color: hsl(0, 0%, 32%);
+}
+
+button:active {
+    box-shadow: inset 0px 1px 3px -1px #000, 0 1px 0 rgba(255, 255, 255, 0.07), -1px -1px 0px rgba(255, 255, 255, 0.07);
+}
+
+
+/* Remove Borders, a.k.a. Outline */
+select::-moz-focus-outer,
+select::-moz-focus-inner,
+button::-moz-focus-outer,
+button::-moz-focus-inner {
+    border: 0 !important;
+    outline: 0 !important;
+}
