@@ -52,7 +52,6 @@ export class QSlider {
         this.input.dispatchEvent(new Event('input'));
     }
     
-    
 }
 
 export class QColor {
@@ -72,6 +71,16 @@ export class QColor {
             bri: 100
         };
         
+    }
+    
+    getTextPreviewColor() {
+        let b = QColor.bright(this.text.bri, 75);
+        return `hsl(${this.text.hue}, ${this.text.sat}%, ${b}%)`;
+    }
+    
+    getPanelPreviewColor() {
+        let b = QColor.bright(this.panel.bri, 25);
+        return `hsl(${this.panel.hue}, ${this.panel.sat}%, ${b}%)`;
     }
     
     parse({name, text, panel}) {
@@ -104,16 +113,17 @@ export class QColor {
         
         let theme = {
             'colors': {
-                "accentcolor": `hsl(${panel.hue}, ${panel.sat}%, ${bright(panel.bri, 7)}%)`,
+                // "accentcolor": `hsl(${panel.hue}, ${panel.sat}%, ${bright(panel.bri, 7)}%)`,
                 "frame": `hsl(${panel.hue}, ${panel.sat}%, ${bright(panel.bri, 7)}%)`,
                 "frame_inactive": `hsl(${panel.hue}, ${panel.sat}%, ${bright(panel.bri, 8)}%)`,
                 "button_background_hover": `hsla(${panel.hue}, ${panel.sat}%, ${bright(panel.bri, 35)}%, 0.7)`,
                 "button_background_active": `hsla(${panel.hue}, ${panel.sat}%, ${bright(panel.bri, 35)}%, 1)`,
                 "icons": `hsla(${text.hue}, ${text.sat}%, ${bright(text.bri, 75)}%, 0.74)`,
                 "icons_attention": `hsl(${text.hue}, ${text.sat}%, ${bright(text.bri, 59)}%)`,
+       
                 // -- Toolbar
                 "toolbar": `hsl(${panel.hue}, ${panel.sat}%, ${bright(panel.bri, 25)}%)`,
-                "toolbar_text": `hsl(${text.hue}, ${text.sat}%, ${bright(text.bri, 75)}%)`,
+                // "toolbar_text": `hsl(${text.hue}, ${text.sat}%, ${bright(text.bri, 75)}%)`,
                 "bookmark_text": `hsl(${text.hue}, ${text.sat}%,${bright(text.bri, 75)}%)`,
                 
                 "toolbar_vertical_separator": `hsla(${panel.hue}, ${panel.sat}%, ${bright(panel.bri, 35)}%, 0.8)`,
@@ -157,7 +167,7 @@ export class QColor {
                 "ntp_text": `hsl(${text.hue}, ${text.sat}%, ${bright(text.bri, 50)}%)`
             }
         };
-    
+        
         // let info = browser.runtime.getBrowserInfo();
         // info.then(value => {
         //     console.log(value);

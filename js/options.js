@@ -2,8 +2,12 @@ import {QColor, QSlider, QStorage} from "./QUtil.js";
 
 console.info('Controls');
 
-let opt_panel = document.getElementById('opt-panel');
 let opt_text = document.getElementById('opt-text');
+let opt_panel = document.getElementById('opt-panel');
+
+let text_preview = document.getElementById('text-preview');
+let panel_preview = document.getElementById('panel-preview');
+
 
 let btn_reload = document.getElementById('btn-reload');
 let btn_default = document.getElementById('btn-default');
@@ -47,11 +51,19 @@ function setColor(qColor) {
     panel_hue.value = qColor.panel.hue;
     panel_sat.value = qColor.panel.sat;
     panel_bri.value = qColor.panel.bri;
+    
+    setPreviewColor(qColor);
+}
+
+function setPreviewColor(qColor) {
+    text_preview.style.backgroundColor = qColor.getTextPreviewColor();
+    panel_preview.style.backgroundColor = qColor.getPanelPreviewColor();
+    
+    console.log('Panel Preview', qColor.getPanelPreviewColor())
 }
 
 
-
-function setHandler(handler) {
+function setHandlerEvents(handler) {
     text_hue.onChange = handler;
     text_sat.onChange = handler;
     text_bri.onChange = handler;
@@ -93,6 +105,8 @@ bg.then(page => {
     // console.info('SideBar', 'has bg');
     // console.info(page);
     
+    page.debug();
+    
     let colors = page.colors;
     console.log(colors);
     setColor(colors.cur);
@@ -107,9 +121,10 @@ bg.then(page => {
         let qColor = getColor(colors.cur);
         qColor.apply();
         console.log('Input Name:', name);
+        setPreviewColor(qColor);
     }
     
-    setHandler(onChangeHandler);
+    setHandlerEvents(onChangeHandler);
     
 });
 

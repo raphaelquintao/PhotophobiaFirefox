@@ -8,7 +8,9 @@ let colors = {
 window.colors = colors;
 
 
+let test = {};
 
+test['enis'] = colors.cur;
 
 
 // browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
@@ -20,6 +22,11 @@ window.colors = colors;
 // });
 
 
+function debug() {
+    console.log('DEBUG', test);
+}
+
+window.debug = debug;
 
 
 // -- Main
